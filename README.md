@@ -96,16 +96,4 @@ Technologies Used
     
 *   **Deployment:** Vercel (frontend), Render (backend)
     
-*   _(Optional: TypeScript & Redux for state management)_
-    
-
-Installation & Setup (For Development)
---------------------------------------
-
-1.  bashCopyEditgit clone git clone
-    
-2.  bashCopyEditcd frontendnpm installnpm start
-    
-3.  bashCopyEditcd backendnpm installnpm run dev
-    
-4.  **Configure environment variables** (e.g., MongoDB URI, JWT secret, Google OAuth keys) in .env files in both frontend and backend.
+* 
