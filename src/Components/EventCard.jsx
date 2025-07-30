@@ -6,7 +6,7 @@ const EventCard = ({ event }) => {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <img
-        src={`http://localhost:3000/uploads/${event.image}`}
+        src={`https://eventpick-server.onrender.com/uploads/${event.image}`}
         alt={eventName}
         className="w-full h-48 object-cover"
       />

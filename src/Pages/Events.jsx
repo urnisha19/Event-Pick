@@ -7,7 +7,7 @@ const Events = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/events")
+      .get("https://eventpick-server.onrender.com/api/events")
       .then((res) => setEvents(res.data))
       .catch((err) => console.error(err));
   }, []);

@@ -35,7 +35,7 @@ const Login = () => {
         };
 
         // Send POST request to backend with Bearer token
-        await axios.post("http://localhost:3000/api/user", userData, {
+        await axios.post("https://eventpick-server.onrender.com/api/user", userData, {
           headers: { Authorization: `Bearer ${token}` },
         });
       } catch (err) {

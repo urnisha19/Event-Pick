@@ -20,7 +20,7 @@ const EventRegistration = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/events/${id}`)
+      .get(`https://eventpick-server.onrender.com/api/events/${id}`)
       .then((res) => setEvent(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -38,7 +38,7 @@ const EventRegistration = () => {
       paymentMethod,
     };
     try {
-      await axios.post("http://localhost:3000/api/bookings", bookingData);
+      await axios.post("https://eventpick-server.onrender.com/api/bookings", bookingData);
       console.log(bookingData);
       navigate("/myBookings");
     } catch (error) {

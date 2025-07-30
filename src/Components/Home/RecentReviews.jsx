@@ -12,7 +12,7 @@ const RecentReviews = () => {
     const fetchReviews = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:3000/api/reviews/latest");
+        const res = await axios.get("https://eventpick-server.onrender.com/api/reviews/latest");
         setReviews(res.data);
       } catch (err) {
         setError("Failed to load reviews.");

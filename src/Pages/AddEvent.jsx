@@ -38,7 +38,7 @@ const AddEvent = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/events/add",
+        "https://eventpick-server.onrender.com/api/events/add",
         payload,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -53,7 +53,7 @@ const AddEvent = () => {
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/events");
+      const res = await axios.get("https://eventpick-server.onrender.com/api/events");
       setEvents(res.data);
     } catch (error) {
       console.error("Failed to fetch events", error);
@@ -66,7 +66,7 @@ const AddEvent = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/events/${id}`);
+      await axios.delete(`https://eventpick-server.onrender.com/api/events/${id}`);
       fetchEvents();
     } catch (error) {
       console.error("Delete failed", error);

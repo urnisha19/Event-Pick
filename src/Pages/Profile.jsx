@@ -32,7 +32,7 @@ const Profile = () => {
       if (!token || !user?.email) return;
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/user/${user.email}`,
+          `https://eventpick-server.onrender.com/api/user/${user.email}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const Profile = () => {
 
     try {
       await axios.put(
-        `http://localhost:3000/api/user/${user.email}`,
+        `https://eventpick-server.onrender.com/api/user/${user.email}`,
         { name, photo },
         {
           headers: {

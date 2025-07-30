@@ -17,7 +17,7 @@ const Navbar = () => {
       try {
         if (user?.email) {
           const res = await axios.get(
-            `http://localhost:3000/admin/isAdmin?email=${user.email}`
+            `https://eventpick-server.onrender.com/admin/isAdmin?email=${user.email}`
           );
           setIsAdmin(res.data.admin);
         } else {

@@ -18,7 +18,7 @@ const HeroSection = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/events");
+        const res = await axios.get("https://eventpick-server.onrender.com/api/events");
         setEvents(res.data);
       } catch (err) {
         console.error("Failed to fetch events", err);

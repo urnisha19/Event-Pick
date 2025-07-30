@@ -10,7 +10,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/events");
+        const res = await axios.get("https://eventpick-server.onrender.com/api/events");
         const events = res.data;
         const uniqueCategories = [
           ...new Set(events.map((event) => event.category)),

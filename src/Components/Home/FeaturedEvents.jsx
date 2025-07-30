@@ -9,7 +9,7 @@ const FeaturedEvents = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/events");
+        const res = await axios.get("https://eventpick-server.onrender.com/api/events");
         setEvents(res.data);
       } catch (err) {
         console.error("Failed to fetch events", err);
@@ -33,7 +33,7 @@ const FeaturedEvents = () => {
           >
             <div className="overflow-hidden">
               <img
-                src={`http://localhost:3000/uploads/${event.image}`}
+                src={`https://eventpick-server.onrender.com/uploads/${event.image}`}
                 alt={event.eventName}
                 className="w-full h-52 object-cover hover:scale-105 transition-transform duration-300"
               />

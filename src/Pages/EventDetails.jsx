@@ -18,7 +18,7 @@ const EventDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/events/${id}`)
+      .get(`https://eventpick-server.onrender.com/api/events/${id}`)
       .then((res) => setEvent(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -72,7 +72,7 @@ const EventDetails = () => {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <img
-          src={`http://localhost:3000/uploads/${image}`}
+          src={`https://eventpick-server.onrender.com/uploads/${image}`}
           alt={eventName}
           className="w-full h-72 object-cover"
         />

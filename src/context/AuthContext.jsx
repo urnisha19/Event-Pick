@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     await axios.post(
-      "http://localhost:3000/api/user",
+      "https://eventpick-server.onrender.com/api/user",
       userData,
       {
         headers: { Authorization: `Bearer ${token}` },
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     try {
       //const token = await getIdToken(currentUser, true);
       const res = await axios.get(
-        `http://localhost:3000/admin/isAdmin?email=${email}`,
+        `https://eventpick-server.onrender.com/admin/isAdmin?email=${email}`,
         // {
         //   headers: {
         //     Authorization: `Bearer ${token}`,

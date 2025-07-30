@@ -21,7 +21,7 @@ const EditEvent = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/events/${id}`)
+      .get(`https://eventpick-server.onrender.com/api/events/${id}`)
       .then((res) => {
         setEvent(res.data);
         setFormData({
@@ -51,7 +51,7 @@ const EditEvent = () => {
     if (image) data.append("eventImage", image);
 
     try {
-      await axios.put(`http://localhost:3000/api/events/${id}`, data, {
+      await axios.put(`https://eventpick-server.onrender.com/api/events/${id}`, data, {
         headers: {
           "Content-Type": "multipart/form-data", // ✅ Ensure proper header
         },

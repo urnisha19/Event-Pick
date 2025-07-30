@@ -9,7 +9,7 @@ const AdminManagement = () => {
 
   const fetchAdmins = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/admin/allAdmin");
+      const response = await axios.get("https://eventpick-server.onrender.com/admin/allAdmin");
       setAdmins(response.data);
     } catch (err) {
       console.error("Failed to fetch admins", err);
@@ -30,7 +30,7 @@ const AdminManagement = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:3000/admin/addAdmin", {
+      const res = await axios.post("https://eventpick-server.onrender.com/admin/addAdmin", {
         email,
       });
       toast.success(res.data.message || "Admin added");
@@ -48,7 +48,7 @@ const AdminManagement = () => {
   const handleDelete = async (adminEmail) => {
     try {
       await axios.delete(
-        `http://localhost:3000/admin/deleteAdmin/${adminEmail}`
+        `https://eventpick-server.onrender.com/admin/deleteAdmin/${adminEmail}`
       );
       toast.success("Admin deleted successfully");
       fetchAdmins();

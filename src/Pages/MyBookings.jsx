@@ -13,7 +13,7 @@ const MyBookings = () => {
   const fetchBookings = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/bookings/${user?.email}`
+        `https://eventpick-server.onrender.com/api/bookings/${user?.email}`
       );
       setBookings(res.data);
     } catch (err) {
@@ -32,7 +32,7 @@ const MyBookings = () => {
 
   const handleCancel = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/bookings/${id}`);
+      await axios.delete(`https://eventpick-server.onrender.com/api/bookings/${id}`);
       setBookings(bookings.filter((booking) => booking._id !== id));
       toast.success("Booking cancelled!");
     } catch (err) {
@@ -43,7 +43,7 @@ const MyBookings = () => {
 
   const handleReviewSubmit = async (id, review) => {
     try {
-      await axios.post(`http://localhost:3000/api/bookings/review/${id}`, review);
+      await axios.post(`https://eventpick-server.onrender.com/api/bookings/review/${id}`, review);
       toast.success("Review submitted!");
     } catch (err) {
       console.error("Review submission failed", err);
