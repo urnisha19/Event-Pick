@@ -10,7 +10,12 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("https://eventpick-server.onrender.com/api/events");
+        const res = await axios.get(
+          "https://eventpick-server.onrender.com/api/events",
+          {
+            withCredentials: true,
+          }
+        );
         const filtered = res.data.filter(
           (event) => event.category === categoryName
         );
