@@ -65,6 +65,7 @@ const FeaturedEvents = () => {
           </div>
         ))}
       </div>
+      <Link to={"/events"}  className="inline-block text-center w-full bg-black hover:bg-indigo-800 text-white text-sm font-medium px-4 py-2 rounded-md transition duration-200">View All Events</Link>
     </section>
   );
 };
