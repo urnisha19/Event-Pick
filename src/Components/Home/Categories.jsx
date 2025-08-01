@@ -17,8 +17,9 @@ const Categories = () => {
           }
         );
         const events = res.data;
+        //Set constructor in JavaScript is used to create a collection of unique values — meaning no duplicates are allowed.
         const uniqueCategories = [
-          ...new Set(events.map((event) => event.category)),
+          ...new Set(events.map((event) => event.category)), 
         ];
         setCategories(uniqueCategories);
       } catch (error) {

@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -17,6 +18,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const auth = getAuth(); // Firebase Auth instance
   const provider = new GoogleAuthProvider(); // Google Auth provider
 
@@ -35,9 +38,13 @@ const Login = () => {
         };
 
         // Send POST request to backend with Bearer token
-        await axios.post("https://eventpick-server.onrender.com/api/user", userData, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await axios.post(
+          "https://eventpick-server.onrender.com/api/user",
+          userData,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
       } catch (err) {
         console.warn("User sync error:", err.response?.data || err.message);
       }
@@ -53,7 +60,7 @@ const Login = () => {
       await storeTokenAndSync(); // Sync user info to backend
       toast.success("Login successful!");
       setPassword(""); // Clear password field
-      navigate("/"); // Redirect to home
+      navigate(from, { replace: true });// Redirect to home
     } catch (err) {
       toast.error(err.message); // Show error to user
       console.error("Login error:", err); // Log for debugging
@@ -68,7 +75,7 @@ const Login = () => {
       await signInWithPopup(auth, provider); // Firebase Google login
       await storeTokenAndSync(); // Sync to backend
       toast.success("Logged in with Google!");
-      navigate("/"); // Redirect
+      navigate(from, { replace: true }); // Redirect
     } catch (err) {
       toast.error("Google sign-in failed.");
       console.error("Google Sign-In Error:", err);

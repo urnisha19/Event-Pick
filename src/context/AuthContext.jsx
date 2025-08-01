@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     );
   };
 
-  // Check if user is admin using the currentUser object to get token
+  // Check if user is admin 
   const checkAdmin = async (email, currentUser) => {
     try {
       //const token = await getIdToken(currentUser, true);
