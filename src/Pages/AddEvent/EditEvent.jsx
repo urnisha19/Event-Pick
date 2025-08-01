@@ -53,7 +53,7 @@ const EditEvent = () => {
     try {
       await axios.put(`https://eventpick-server.onrender.com/api/events/${id}`, data, {
         headers: {
-          "Content-Type": "multipart/form-data", // ✅ Ensure proper header
+          "Content-Type": "multipart/form-data",
         },
       });
       alert("Event updated successfully!");

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AddEvent = () => {
@@ -54,11 +54,11 @@ const AddEvent = () => {
   const fetchEvents = async () => {
     try {
       const res = await axios.get(
-          "https://eventpick-server.onrender.com/api/events",
-          {
-            withCredentials: true,
-          }
-        );
+        "https://eventpick-server.onrender.com/api/events",
+        {
+          withCredentials: true,
+        }
+      );
       setEvents(res.data);
     } catch (error) {
       console.error("Failed to fetch events", error);
@@ -71,7 +71,9 @@ const AddEvent = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://eventpick-server.onrender.com/api/events/${id}`);
+      await axios.delete(
+        `https://eventpick-server.onrender.com/api/events/${id}`
+      );
       fetchEvents();
     } catch (error) {
       console.error("Delete failed", error);
@@ -204,12 +206,12 @@ const AddEvent = () => {
             <div key={event._id} className="border p-4 rounded shadow">
               <h3 className="text-lg font-bold">{event.eventName}</h3>
               <div className="mt-2 text-center">
-                <a
-                  href={`/addEvent/${event._id}/edit`}
+                <Link
+                  to={`/addEvent/${event._id}/edit`}
                   className="text-blue-600 underline mx-10"
                 >
                   Edit
-                </a>
+                </Link>
                 <button
                   onClick={() => handleDelete(event._id)}
                   className="text-red-600 underline"
